@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectMove : MonoBehaviour
 {
     //Переменная для скорости движения
-    public float speed;
+    public static float speed;
 
     // Start is called before the first frame update
     void Start()

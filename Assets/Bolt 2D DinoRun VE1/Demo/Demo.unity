@@ -654,6 +654,8 @@ MonoBehaviour:
   gameOver: {fileID: 1394183783}
   live: {fileID: 1810727099}
   liveScore: 3
+  stop: 0
+  scene: {fileID: 1658211611077430943}
 --- !u!1 &1416413606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1014,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1379891885491193633, guid: 30f0aa2b0fce80145875630efb56c49c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3977369339601072272, guid: 30f0aa2b0fce80145875630efb56c49c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.22

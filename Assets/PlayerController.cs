@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     public Text live;
     public int liveScore = 3;
 
+    public bool stop = false;
+    public GameObject scene;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +34,18 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        /*
         if (liveScore == 0)
         {
             gameOver.SetActive(true);
         }
+        */
+        if(stop)
+        {
+            ObjectMove.speed = 0f;
+            gameOver.SetActive(true);
+        }
+        
     }
 
     public void Jump()
@@ -46,8 +57,12 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
+
+            stop = true;
+            
             liveScore--;
             live.text = liveScore.ToString();
+            
         }
     }
 
