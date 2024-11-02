@@ -14,11 +14,15 @@ public class PlayerController : MonoBehaviour
     private float gruondRadius = 0.5f;
 
     public GameObject gameOver;
-    public Text live;
-    public int liveScore = 3;
+    public GameObject endLevel;
+
+   
 
     public bool stop = false;
-    public GameObject scene;
+    public bool end = false;
+    
+
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +49,18 @@ public class PlayerController : MonoBehaviour
             ObjectMove.speed = 0f;
             gameOver.SetActive(true);
         }
+
         
+        
+    }
+    private void FixedUpdate()
+    {
+        if (end)
+        {
+            ObjectMove.speed = 0f;
+            endLevel.SetActive(true);
+
+        }
     }
 
     public void Jump()
@@ -60,15 +75,23 @@ public class PlayerController : MonoBehaviour
 
             stop = true;
             
-            liveScore--;
-            live.text = liveScore.ToString();
             
         }
+
+        if (collision.tag == "End")
+        {
+            end = true;
+        }
+
     }
+
+   
 
     public void Restart()
     {
+        CoinCollect.coinScore = 0;
         SceneManager.LoadScene("Demo");
+
     }
 
 }
